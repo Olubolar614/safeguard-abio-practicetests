@@ -1,0 +1,205 @@
+[
+  {
+    "description": "    Feature Login page will work depending on the user credentials.",
+    "elements": [
+      {
+        "description": "",
+        "keyword": "Background",
+        "line": 5,
+        "name": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 6,
+            "name": "A web browser is at the orangehrm login page",
+            "result": {
+              "duration": 747000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "not available:0"
+            }
+          }
+        ],
+        "type": "background"
+      },
+      {
+        "description": "",
+        "id": "login-page;success-login",
+        "keyword": "Scenario",
+        "line": 8,
+        "name": "Success Login",
+        "steps": [
+          {
+            "keyword": "When ",
+            "line": 9,
+            "name": "A user enters the username \"Admin\", the password \"admin123\", and clicks on the login button",
+            "result": {
+              "duration": 1555000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "not available:0"
+            }
+          },
+          {
+            "keyword": "Then ",
+            "line": 10,
+            "name": "the url will contains the index subdirectory",
+            "result": {
+              "duration": 12000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "not available:0"
+            }
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "keyword": "Background",
+        "line": 5,
+        "name": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 6,
+            "name": "A web browser is at the orangehrm login page",
+            "result": {
+              "duration": 252000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "not available:0"
+            }
+          }
+        ],
+        "type": "background"
+      },
+      {
+        "description": "",
+        "id": "login-page;incorrect-username-login",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "Incorrect Username Login",
+        "steps": [
+          {
+            "keyword": "When ",
+            "line": 13,
+            "name": "A user provides incorrect credentials, and clicks on the login button",
+            "result": {
+              "duration": 1118000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "not available:0"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "username",
+                  "password"
+                ]
+              },
+              {
+                "cells": [
+                  "Geky234",
+                  "admin123"
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Then ",
+            "line": 16,
+            "name": "The error message \"Invalid credentials\" is displayed",
+            "result": {
+              "duration": 177000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "not available:0"
+            }
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "keyword": "Background",
+        "line": 5,
+        "name": "",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "line": 6,
+            "name": "A web browser is at the orangehrm login page",
+            "result": {
+              "duration": 255000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "not available:0"
+            }
+          }
+        ],
+        "type": "background"
+      },
+      {
+        "description": "",
+        "id": "login-page;incorrect-password-login",
+        "keyword": "Scenario",
+        "line": 18,
+        "name": "Incorrect Password Login",
+        "steps": [
+          {
+            "keyword": "When ",
+            "line": 19,
+            "name": "A user provides incorrect credentials, and clicks on the login button",
+            "result": {
+              "duration": 1478000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "not available:0"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "username",
+                  "password"
+                ]
+              },
+              {
+                "cells": [
+                  "Admin",
+                  "good517"
+                ]
+              }
+            ]
+          },
+          {
+            "keyword": "Then ",
+            "line": 22,
+            "name": "The error message \"Invalid credentials\" is displayed",
+            "result": {
+              "duration": 199000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "not available:0"
+            }
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "login-page",
+    "keyword": "Feature",
+    "line": 1,
+    "name": "Login page",
+    "uri": "cypress/e2e/features/login.feature"
+  }
+]
