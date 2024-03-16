@@ -14,9 +14,9 @@ When("A user enters the username {string}, the password {string}, and clicks on 
   
 });
 
-/*When("I click Pim from the main menu", () => {
-  loginPage.clickMenu();
-});*/
+// When("I click Pim from the main menu", () => {
+//   loginPage.clickMenu();
+// });
 
 /*When("A user provides incorrect credentials, and clicks on the login button", (table) => {
   table.hashes().forEach((row) => {
@@ -31,7 +31,7 @@ Then("the url will contains the index subdirectory", () => {
   cy.url().should("contains", "/index");
 });
 
-When("I click Pim from the main menu", () => {
+When("I click pim from the main menu", () => {
   loginPage.clickMenu();
 });
 

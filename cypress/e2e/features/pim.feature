@@ -14,8 +14,8 @@
         #When I click pim from the main menu 
         #When I click add employee button
         #When I fill the employee form, and clicks on the save button
-            | firstname | lastname    |  employeeid   |
-            | good315   | feyi418     |       7138    |
+            # | firstname | lastname    |  employeeid   |
+            # | good315   | feyi418     |       7138    |
         #Then I should see a success message
 
     #Scenario: Edit a new employee record
