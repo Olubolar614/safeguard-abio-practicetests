@@ -1,4 +1,4 @@
-/*import {
+import {
   Given,
   When,
   Then,
@@ -6,22 +6,16 @@
 import {loginPage} from '@pages/LoginPage'
 import {pimPage} from '@pages/PimPage'
 
-Given("A web browser is at the orangehrm login page", () => {
-  cy.visit("/");
+When("I enter name {string} in the employee name field", (firstname) => {
+  pimPage.enterEmployeeName(firstname);
 });
 
-When("A user enters the username {string}, the password {string}, and clicks on the login button", (username,password) => {
-  loginPage.submitLogin(username,password) 
+When("I enter new firstname {string}, and clicks on the save button", (firstname) => {
+  pimPage.enterEmployeeEditFirstname(firstname);
 });
-
-When("I enter name {string} in the employee name field", () => {
-  pimPage.enterEmployeeName();
-});
-
-When("I enter new firstname {string}, and clicks on the save button", () => {
-  pimPage.enterEmployeeEditFirstname
-});
-
+When("I click the delete button in the search results table row",()=>{
+  pimPage.clickDeleteButton();
+})
 When("A user provides incorrect credentials, and clicks on the login button", (table) => {
   table.hashes().forEach((row) => {
     cy.log(row.username);
@@ -39,7 +33,7 @@ When("I fill the employee form, and clicks on the save button", (table) => {
   });
 });
 
-Then("the url will contains the index subdirectory", () => {
+Then("the url will contain the index subdirectory", () => {
   cy.url().should("contains", "/index");
 });
 
@@ -49,6 +43,7 @@ When("I click Pim from the main menu", () => {
 
 When("I click add employee button", () => {
   pimPage.clickAdd();
+  cy.wait(2000);
 });
 
 When("I click the search button", () => {
@@ -56,11 +51,12 @@ When("I click the search button", () => {
 });
 
 When("I click the edit button in the search results table row", () => {
+  cy.wait(2000);
   pimPage.searchResultsEdit();
 });
 
-When("And I clear the firstname field", () => {
-  pimPage.clearEmployeeEditFirstname
+When("I clear the firstname field", () => {
+  pimPage.clearEmployeeEditFirstname();
 });
 
 Then("The error message {string} is displayed", (errorMessage) => {
@@ -68,5 +64,8 @@ Then("The error message {string} is displayed", (errorMessage) => {
 });
 
 Then("I should see a success message", (successMessage) => {
-  pimPage.elements.successMessage().should("have.text", successMessage);
-});*/
+  cy.on("window:alert", (str) => {
+    expect(str).to.equal("Success");
+  });
+  cy.wait(2000);
+});

@@ -1,22 +1,28 @@
-/*class PimPage {
+class PimPage {
   elements = {
     usernameInput: () => cy.get("input[placeholder='Username']"),
     passwordInput: () => cy.get("input[placeholder='Password']"),
-    firstnameInput: () => cy.get("input[placeholder='Username']"),
+    firstnameInput: () => cy.get("input[placeholder='First Name']"),
     editEmployeeFirstnameInput: () => cy.get("input[placeholder='First Name']"),
-    lastnameInput: () => cy.get("input[placeholder='Password']"),
-    employeeidInput: () => cy.get("input[placeholder='Password']"),
+    lastnameInput: () => cy.get("input[placeholder='Last Name']"),
+    employeeidInput: () => cy.get(".orangehrm-full-width-grid > div > div > div:nth-child(2) > input"),
     loginBtn: () => cy.get("button.oxd-button.orangehrm-login-button"),
-    saveBtn: () => cy.get("button.oxd-button.oxd-button--medium.oxd-button--secondary.orangehrm-left-space"),
-    formEmployeeNameInput: () => cy.get("div.oxd-autocomplete-text-input.oxd-autocomplete-text-input--active"),
+    saveBtn: () => cy.get("button.oxd-button.oxd-button--medium.oxd-button--secondary.orangehrm-left-space").first(),
+    formEmployeeNameInput: () => cy.get("div.oxd-autocomplete-text-input.oxd-autocomplete-text-input--active").first(),
     formSearchBtn: () => cy.get("button.oxd-button.oxd-button--medium.oxd-button--secondary.orangehrm-left-space"),
-    searchResultsTableEditBtn: () => cy.get("i.oxd-icon.bi-pencil-fill"),
+    searchResultsTableEditBtn: () => cy.get("i.oxd-icon.bi-pencil-fill").first(),
     pimAddEmployeeBtn: () => cy.get ("button.oxd-button.oxd-button--medium.oxd-button--secondary"),
     pimMenu: () => cy.get("span.oxd-text.oxd-main-menu-item--name"),
     errorMessage: () => cy.get("p.oxd-text.oxd-alert-content-text"),
-    successMessage: () => y.get("div"),
+    successMessage: () => cy.get("div"),
+    deleteButton: ()=> cy.get("button.oxd-icon-button .oxd-icon.bi-trash").first(),
+    confirmDeleteButton: ()=> cy.get(".oxd-button--label-danger"),
   };
 
+  clickDeleteButton(){
+    this.elements.deleteButton().click();
+    this.elements.confirmDeleteButton().click();
+  }
   typeUsername(username) {
     this.elements.usernameInput().type(username);
   }
@@ -34,7 +40,7 @@
   }
 
   typeEmployeeFormEmployeeid(employeeid) {
-    this.elements.employeeidInput().type(employeeid);
+    this.elements.employeeidInput().clear().type(employeeid);
   }
 
   clickLogin() {
@@ -46,20 +52,20 @@
   }
 
   searchResultsEdit() {
-    this.elements.searchResultsTableEditBtn.click();
+    this.elements.searchResultsTableEditBtn().click();
   }
 
   clearEmployeeEditFirstname() {
-    this.elements.editEmployeeFirstnameInput.clear();
+    this.elements.editEmployeeFirstnameInput().clear();
   }
 
-  enterEmployeeEditFirstname() {
-    this.elements.editEmployeeFirstnameInput.type();
+  enterEmployeeEditFirstname(firstname) {
+    this.elements.editEmployeeFirstnameInput().type(firstname);
     this.elements.saveBtn().click();
   }
 
-  enterEmployeeName() {
-    this.elements.formEmployeeNameInput().type().wait(2000);
+  enterEmployeeName(firstname) {
+    this.elements.formEmployeeNameInput().type(firstname).wait(2000);
   }
 
   searchEmployeeName() {
@@ -67,7 +73,7 @@
   }
 
   clickAdd() {
-    this.elements.pimAddEmployeeBtn().contains('Add').click
+    this.elements.pimAddEmployeeBtn().contains('Add').click();
   }
 
   clickMenu() {
@@ -90,4 +96,4 @@
   }
 }
 
-export const pimPage = new PimPage();*/
+export const pimPage = new PimPage();
